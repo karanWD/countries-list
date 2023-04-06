@@ -75,13 +75,13 @@ export default function Home() {
 
 
   useEffect(() => {
-    if (searchQuery) {searchFilterHandler()}
+    if (searchQuery && countries) {searchFilterHandler()}
     else if (regionQuery) {regionFilterHandler()}
     else {
       if (!countries) {fetchHandler()}
       else {defaultHandler()}
     }
-  }, [searchQuery, regionQuery,sortQuery])
+  }, [searchQuery, regionQuery,sortQuery,countries])
 
 
 
@@ -95,7 +95,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico"/>
         </Head>
         <FiltersContainer />
-        <div className=" grid lg:grid-cols-4 gap-20 container mx-auto">
+        <div className=" grid lg:grid-cols-4 gap-8 lg:gap-20 mx-auto py-5 container px-12 lg:px-0">
             <LoadingPage laoding={!renderedCountries || countriesRes.loading || countriesRegionRes.loading}>
                 <CountriesContainer data={renderedCountries} />
             </LoadingPage>

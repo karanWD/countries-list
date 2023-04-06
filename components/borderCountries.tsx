@@ -10,11 +10,11 @@ const BorderCountries = ({code}) => {
     code &&
     fetchName({url: ApiRoutes.FETCH_BY_CODE + "/" + code + "?fields=name"})
   }, [code])
-  console.log(nameRes)
+
   return (
       nameRes.data &&
       <Link href={nameRes.data.name.common}>
-        <div className="bg-white shadow-md py-1 px-4 text-sm ">
+        <div className="bg-white dark:bg-custom-navy text-custom-dark dark:text-white shadow-md py-1 px-4 text-sm ">
           {nameRes.data.name.common}
         </div>
       </Link>
