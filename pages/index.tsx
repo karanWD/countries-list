@@ -101,7 +101,7 @@ export default function Home() {
         </Head>
         <FiltersContainer />
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-20 mx-auto py-5 container px-12 lg:px-0">
-            <LoadingPage loading={!renderedCountries || countriesRes.loading || countriesRegionRes.loading}>
+            <LoadingPage loading={!renderedCountries || !countriesRes.data ||countriesRes.loading || !countriesRegionRes.data || countriesRegionRes.loading}>
                 <CountriesContainer data={renderedCountries} />
             </LoadingPage>
         </div>
