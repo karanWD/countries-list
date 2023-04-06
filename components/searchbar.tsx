@@ -7,7 +7,7 @@ const Searchbar = () => {
   const router = useRouter()
   const {query} = router
   const [value, setValue] = useState("")
-  const changeHandler = (e) => {
+  const changeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {
     router.push({
       query: {q: e.target.value, sort: router.query.sort}
     })

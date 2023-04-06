@@ -1,5 +1,5 @@
-export const checkMatches = (main = "", query = "") => {
-  let searchQuery = [...query]
+export const checkMatches = (main:any , query:any ) => {
+  let searchQuery = [...query as Array<string>]
   let count = 0;
   let deleteCount = 1
   if (main[0]!==searchQuery[0]) return 0

@@ -14,7 +14,7 @@ apiInstance.interceptors.request.use(
 );
 
 const useRequest = (axiosParams?: AxiosRequestConfig) => {
-  const [response, setResponse] = useState({
+  const [response, setResponse] = useState<{data:any,loading:boolean,error:any}>({
     data: null,
     loading: false,
     error: null,
@@ -26,7 +26,7 @@ const useRequest = (axiosParams?: AxiosRequestConfig) => {
       const result = await apiInstance.request(newParams ?? axiosParams as any);
       setResponse({ data: result.data, loading: false, error: null });
       return result.data
-    } catch (e) {
+    } catch (e:any) {
       let message = e.response?.data?.message ? e.response.data.message : e.response?.data
       setResponse({ data: null, loading: false, error: message });
       return Promise.reject(message)

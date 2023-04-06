@@ -1,10 +1,13 @@
-import React from "react";
+import React, {FC, ReactComponentElement, ReactElement, ReactNode} from "react";
 
 const temp = new Array(16).fill("null");
-const LoadingPage = ({children, laoding}) => {
-  return (laoding ? temp.map((item, index) => <Loading key={index}/>) : children)
+type Props={
+  children:any,
+  loading:boolean
 }
-
+const LoadingPage = ({children, loading}:Props) => {
+  return (loading ? temp.map((item, index) => <Loading key={index}/>) : children)
+}
 export default LoadingPage
 
 

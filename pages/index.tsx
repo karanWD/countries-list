@@ -15,11 +15,16 @@ import CountriesContainer from "@/components/countriesContainer";
 import {sortHandler} from "@/utils/sortHandler";
 
 export type CountriesDataType = {
-  name: { common: string }
+  name: { common: string ,nativeName:Array<any>}
   capital: string[]
   region: string
   population: number
   flags: { png: string, svg: string, alt: string }
+  borders: any[]
+  languages:any[]
+  currencies:any[]
+  tld:string
+  subregion:string
 }
 type ResponseType = {
   data: Array<CountriesDataType>
@@ -28,7 +33,7 @@ type ResponseType = {
 export default function Home() {
   const [fetchCountries, countriesRes] = useRequest()
   const [fetchCountriesRegion, countriesRegionRes] = useRequest()
-  const [renderedCountries, setRenderedCountries] = useState([])
+  const [renderedCountries, setRenderedCountries] = useState<Array<CountriesDataType>>([])
 
   const router = useRouter()
   const {query} = router
@@ -41,7 +46,7 @@ export default function Home() {
     let includeArr = countries.filter(item => item.name.common.toLowerCase().includes(searchQuery.toLowerCase()))
     if (includeArr.length > 0) {
       const sortedArr = sortHandler(sortQuery ??"",includeArr)
-      setRenderedCountries(sortedArr)
+      setRenderedCountries(sortedArr as Array<CountriesDataType>)
     } else {
       setRenderedCountries([])
       for (let item of countries) {
@@ -95,8 +100,8 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico"/>
         </Head>
         <FiltersContainer />
-        <div className=" grid lg:grid-cols-4 gap-8 lg:gap-20 mx-auto py-5 container px-12 lg:px-0">
-            <LoadingPage laoding={!renderedCountries || countriesRes.loading || countriesRegionRes.loading}>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-20 mx-auto py-5 container px-12 lg:px-0">
+            <LoadingPage loading={!renderedCountries || countriesRes.loading || countriesRegionRes.loading}>
                 <CountriesContainer data={renderedCountries} />
             </LoadingPage>
         </div>

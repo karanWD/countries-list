@@ -7,13 +7,16 @@ import InfoItem from "@/components/infoItem";
 import ListInfoItem from "@/components/listInfoItem";
 import BorderCountries from "@/components/borderCountries";
 import ArrowSVG from "@/svgs/arrowSVG";
+import {CountriesDataType} from "@/pages/index";
 
 
 const CountryDetailPage = () => {
   const [fetchInfo, countryInfoRes] = useRequest()
+  const resData = countryInfoRes?.data as Array<CountriesDataType>
   const router = useRouter()
   const {query} = router
-  const data = countryInfoRes?.data?.length > 0 ? countryInfoRes?.data[0] : null
+  const data = resData?.length > 0 ? resData[0] : null
+
   useEffect(() => {
     query.name &&
     fetchInfo({url: ApiRoutes.FETCH_BY_NAME + "/" + query.name + "?fullText=true"})

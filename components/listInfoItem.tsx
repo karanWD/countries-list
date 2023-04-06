@@ -11,13 +11,13 @@ const InfoItem: FC<Props> = ({title, value, targetKey}) => {
         <span className="font-regular">{title} :</span>
         {
           value?.length ?
-              value?.map((item, index) => (
+              value?.map((item:string, index:number) => (
                   <span key={"LIST_INFO_ITEM" + index} className="opacity-70 px-1 font-light  border-r border-gray-400 inline-block last:border-none">
                     {item}
                   </span>
               ))
               :
-              Object.keys(value).map((item, index) => (
+              Object.keys(value).map((item:string, index:number) => (
                   <span key={"LIST_INFO_ITEM" + index} className="opacity-70 px-1 font-light border-r border-gray-400 inline-block last:border-none">
                     {targetKey ? value[item][targetKey] : value[item]}
                   </span>

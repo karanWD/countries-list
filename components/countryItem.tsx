@@ -1,9 +1,19 @@
-import React from "react";
+import React, {FC} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import InfoItem from "@/components/infoItem";
-
-const CountryItem = ({name, flag, population, capital, region}) => {
+type Props={
+  name:string
+  flag:{
+    png:string,
+    svg:string,
+    alt:string
+  }
+  population:number,
+  capital:string
+  region:string
+}
+const CountryItem:FC<Props> = ({name, flag, population, capital, region}) => {
 
   return (
       <Link href={name}>

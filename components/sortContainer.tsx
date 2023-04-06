@@ -10,7 +10,7 @@ const SortContainer = () =>{
   const [isOpen, setOpen] = useState(false)
   const [currentSort, setSort] = useState<string | null>(null)
 
-  const clickHandler = (value)=>{
+  const clickHandler = (value:string)=>{
     setSort(value)
     router.push({query: {...query,sort: value}})
   }

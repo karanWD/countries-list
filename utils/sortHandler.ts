@@ -1,4 +1,4 @@
-export const sortHandler = (type,array) => {
+export const sortHandler = (type:"NAME"|"POPULATION",array:any[]) => {
   const arr = [...array]
   if (type === "NAME") {
     arr.sort(function (a, b) {
