@@ -7,7 +7,7 @@ const CountryItem = ({name, flag, population, capital, region}) => {
 
   return (
       <Link href={name}>
-        <div className="bg-white shadow-[1px_1px_15px_rgba(0,0,0,0.1)] dark:bg-custom-navy rounded-lg">
+        <div className="bg-white shadow-[1px_1px_15px_rgba(0,0,0,0.05)] dark:bg-custom-navy rounded-lg">
           {flag &&
               <div className="w-full h-[150px] relative"><Image layout="fill" src={flag.png} alt={flag.alt ?? name}/></div>}
           <div className="p-5">

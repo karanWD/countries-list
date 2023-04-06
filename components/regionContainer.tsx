@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import ChevronSVG from "@/svgs/chevronSVG";
 
 const RegionContainer = () => {
   const router = useRouter()
@@ -22,17 +23,13 @@ const RegionContainer = () => {
   return (
       <div className="w-44 relative" onClick={()=>setOpen(prev=>!prev)}>
         <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover"
-                className="shadow-md flex justify-between w-full text-custom-dark bg-white rounded-md text-sm px-4 py-3.5 text-center inline-flex items-center dark:bg-custom-navy "
+                className="shadow-[0_0_15px_rgba(0,0,0,0.05)] flex justify-between w-full text-custom-dark bg-white rounded-md text-sm px-4 py-3.5 text-center inline-flex items-center dark:bg-custom-navy "
                 type="button">
           {currentRegion ?? "Select Region"}
-          <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none"
-               stroke="currentColor" viewBox="0 0 24 24"
-               xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
+          <span className={`transition-all duration-300 relative w-4 h-4 transform ${isOpen?"rotate-0":"rotate-180"}`}><ChevronSVG/></span>
         </button>
         <div id="dropdownHover"
-             className={`${(isOpen) ? "block" : "hidden"} z-10  bg-white absolute inset-0 divide-y divide-gray-100 rounded-lg shadow w-full h-[230px] transform translate-y-12 shadow-xl dark:bg-gray-700`}>
+             className={`${(isOpen) ? "block" : "hidden"} z-10  bg-white absolute inset-0 divide-y divide-gray-100 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] w-full h-[230px] transform translate-y-12 shadow-xl dark:bg-gray-700`}>
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
             <RegionItem title={"Africa"} clickHandler={() => queryHandler("africa")}/>
             <RegionItem title={"America"} clickHandler={() => queryHandler("america")}/>
