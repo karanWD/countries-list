@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](https://33333.cdn.cke-cs.com/kSW7V9NHUXugvhoQeFaf/images/5723b4283334ed6d742cadb37a86ff8c45e4e9d36a658492.jpg)
 
-## Getting Started
+[**Demo**](https://countries-app-sandy.vercel.app/)
 
-First, run the development server:
+## **Countries App**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+The countries app shows a list of 250 countries from REST Countries database.
+
+The app shows the country's flags and some other information about them like population, region and each one has a detail page that shows more information about that country.
+
+The app was developed with Next.js, TypeScript and Tailwindcss.
+
+Use just Axios library for fetch requests.
+
+### Features 
+
+* Filter countries by their name without using any 3rd party libraries.
+* Filter countries by their region.
+* Sort filtered or unfiltered countries by their name and population. (Simultaneous filtering and sorting)
+* Store the filters in the URL query strings and sync it with the app.
+* Implemented search based on name with the possibility of recognizing names with more than 70% similarity. (for example Germany country shows in both “grmny” and “grmany” searches)
+* Toggle the color scheme between light and dark modes without using any 3rd party libraries.
+* Add lazy loading for country images and lists.
+* Loaded styles when it is needed.
+* Maintain images ratio in different device sizes.
+
+### [Demo](https://countries-app-sandy.vercel.app/)
+
+The app deployed on vercel, you can see it from [here](https://countries-app-sandy.vercel.app/).
+
+### Development Build
+
+Install all dependencies, in repo's root:
+
+```plaintext
+$ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+And build it 
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```plaintext
+$ npm run build
+```
